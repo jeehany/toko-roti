@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include '../../koneksi/koneksi.php';
 $username = $_POST['user'];
@@ -8,12 +8,11 @@ $result = mysqli_query($conn, "SELECT * FROM admin where username = '$username'"
 $row = mysqli_fetch_assoc($result);
 $user = $row['username'];
 $ps = $row['password'];
-if($username == $user){
-	if(password_verify($pass, $ps)){
+if ($username == $user) {
+	if (password_verify($pass, $ps)) {
 		$_SESSION["admin"] = true;
 		header('location:../halaman_utama.php');
-	}
-	else{
+	} else {
 		echo "
 		<script>
 		alert('USERNAME/PASSWORD SALAH');
@@ -21,8 +20,7 @@ if($username == $user){
 		</script>
 		";
 	}
-}
-else{
+} else {
 	echo "
 	<script>
 	alert('USERNAME/PASSWORD SALAH');
@@ -30,5 +28,3 @@ else{
 	</script>
 	";
 }
-
-?>

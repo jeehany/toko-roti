@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Dec 23, 2024 at 10:38 AM
--- Server version: 8.0.30
--- PHP Version: 8.3.12
+-- Host: 127.0.0.1
+-- Generation Time: Jan 13, 2025 at 10:55 AM
+-- Server version: 8.0.33
+-- PHP Version: 8.3.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `roti`
+-- Database: `liviskincare`
 --
 
 -- --------------------------------------------------------
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
-(1, 'admin', '$2y$10$AIy0X1Ep6alaHDTofiChGeqq7k/d1Kc8vKQf1JZo0mKrzkkj6M626');
+(1, 'admin', '$2y$10$UFZcWzc0nSRib2M6zSA9seiuKpFgf5pJJkXBPE/FP5wlUzltAkvri');
 
 -- --------------------------------------------------------
 
@@ -47,11 +47,11 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 --
 
 CREATE TABLE `bom_produk` (
-  `kode_bom` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `kode_bk` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `kode_produk` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama_produk` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `kebutuhan` varchar(200) COLLATE utf8mb4_general_ci NOT NULL
+  `kode_bom` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `kode_bk` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `kode_produk` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nama_produk` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `kebutuhan` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -59,15 +59,15 @@ CREATE TABLE `bom_produk` (
 --
 
 INSERT INTO `bom_produk` (`kode_bom`, `kode_bk`, `kode_produk`, `nama_produk`, `kebutuhan`) VALUES
-('B0001', 'M0002', 'P0001', 'Roti Sobek', '2'),
-('B0001', 'M0001', 'P0001', 'Roti Sobek', '4'),
-('B0001', 'M0004', 'P0001', 'Roti Sobek', '3'),
-('B0002', 'M0001', 'P0002', 'Maryam', '4'),
-('B0002', 'M0004', 'P0002', 'Maryam', '3'),
-('B0002', 'M0003', 'P0002', 'Maryam', '2'),
-('B0003', 'M0002', 'P0003', 'Kue tart coklat', '2'),
-('B0003', 'M0003', 'P0003', 'Kue tart coklat', '5'),
-('B0003', 'M0005', 'P0003', 'Kue tart coklat', '5');
+('B0001', 'M0001', 'P0001', 'Facial Wash Tea Tree', '3'),
+('B0001', 'M0002', 'P0001', 'Facial Wash Tea Tree', '2'),
+('B0001', 'M0003', 'P0001', 'Facial Wash Tea Tree', '1'),
+('B0002', 'M0002', 'P0002', 'Brightening Serum', '2'),
+('B0002', 'M0004', 'P0002', 'Brightening Serum', '3'),
+('B0002', 'M0005', 'P0002', 'Brightening Serum', '2'),
+('B0003', 'M0003', 'P0003', 'Moisturizer Ceramide', '3'),
+('B0003', 'M0004', 'P0003', 'Moisturizer Ceramide', '2'),
+('B0003', 'M0005', 'P0003', 'Moisturizer Ceramide', '2');
 
 -- --------------------------------------------------------
 
@@ -76,12 +76,12 @@ INSERT INTO `bom_produk` (`kode_bom`, `kode_bk`, `kode_produk`, `nama_produk`, `
 --
 
 CREATE TABLE `customer` (
-  `kode_customer` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `username` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `telp` varchar(200) COLLATE utf8mb4_general_ci NOT NULL
+  `kode_customer` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nama` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `username` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `telp` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -93,7 +93,8 @@ INSERT INTO `customer` (`kode_customer`, `nama`, `email`, `username`, `password`
 ('C0003', 'Nagita Silvana', 'bambang@gmail.com', 'Nagita', '$2y$10$47./qEeA/y3rNx3UkoKmkuxoAtmz4ebHSR0t0Bc.cFEEg7cK34M3C', '087804616097'),
 ('C0004', 'Nadiya', 'nadiya@gmail.com', 'nadiya', '$2y$10$6wHH.7rF1q3JtzKgAhNFy.4URchgJC8R.POT1osTAWmasDXTTO7ZG', '0898765432'),
 ('C0005', 'Agus', 'agus@gmail.com', 'agus', '$2y$10$nMpGeqG9bvq7HTnHR6TKjeTKkv7vOcXdaWtVsGT.YRzWSf671MiEO', '+62812345678'),
-('C0006', 'Sri Nor Emilyani', 'sriemilyani@gmail.com', 'sriemilyani', '$2y$10$WBzThLC7z.beeC3SeIR/NuvNXXhiwctQrqHQs.9owHmeMIdXr5wsG', '085388999694');
+('C0006', 'Sri Nor Emilyani', 'sriemilyani@gmail.com', 'sriemilyani', '$2y$10$WBzThLC7z.beeC3SeIR/NuvNXXhiwctQrqHQs.9owHmeMIdXr5wsG', '085388999694'),
+('C0007', 'tes', 'tes@mre.om', 'tes', '$2y$10$KNqFYgk8HJLwwBbA3HIhkeqcExXuU4Xk8nGkVdMbyiqZ1bp5XUfdK', '432432432432');
 
 -- --------------------------------------------------------
 
@@ -102,10 +103,10 @@ INSERT INTO `customer` (`kode_customer`, `nama`, `email`, `username`, `password`
 --
 
 CREATE TABLE `inventory` (
-  `kode_bk` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `qty` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `satuan` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `kode_bk` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nama` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `qty` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `satuan` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `harga` int NOT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -115,11 +116,11 @@ CREATE TABLE `inventory` (
 --
 
 INSERT INTO `inventory` (`kode_bk`, `nama`, `qty`, `satuan`, `harga`, `tanggal`) VALUES
-('M0001', 'Tepung', '520', 'Kg', 1000, '2024-12-23'),
-('M0002', 'Pengembang', '99992', 'Kg', 1000, '2024-12-23'),
-('M0003', 'Cream', '1300', 'Kg', 3000, '2024-12-23'),
-('M0004', 'Keju', '640', 'Kg', 4000, '2024-12-23'),
-('M0005', 'Coklat', '100000', 'Kg', 5000, '2024-12-23');
+('M0001', 'Tea Tree Oil', '500', 'ml', 25000, '2025-01-13'),
+('M0002', 'Aqua', '10000', 'ml', 1000, '2024-12-27'),
+('M0003', 'Vitamin C', '1000', 'gram', 35000, '2024-12-23'),
+('M0004', 'Niacinamide', '800', 'gram', 40000, '2024-12-23'),
+('M0005', 'Ceramide', '500', 'gram', 45000, '2024-12-23');
 
 -- --------------------------------------------------------
 
@@ -129,9 +130,9 @@ INSERT INTO `inventory` (`kode_bk`, `nama`, `qty`, `satuan`, `harga`, `tanggal`)
 
 CREATE TABLE `keranjang` (
   `id_keranjang` int NOT NULL,
-  `kode_customer` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `kode_produk` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama_produk` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `kode_customer` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `kode_produk` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nama_produk` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `qty` int NOT NULL,
   `harga` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -146,7 +147,8 @@ INSERT INTO `keranjang` (`id_keranjang`, `kode_customer`, `kode_produk`, `nama_p
 (23, '', 'P0001', 'Roti Sobek', 1, 10000),
 (24, '', 'P0001', 'Roti Sobek', 1, 10000),
 (25, '', 'P0001', 'Roti Sobek', 1, 10000),
-(26, '', 'P0001', 'Roti Sobek', 1, 10000);
+(26, '', 'P0001', 'Roti Sobek', 1, 10000),
+(43, 'C0007', 'P0003', 'Kue tart coklat', 5, 100000);
 
 -- --------------------------------------------------------
 
@@ -155,10 +157,10 @@ INSERT INTO `keranjang` (`id_keranjang`, `kode_customer`, `kode_produk`, `nama_p
 --
 
 CREATE TABLE `produk` (
-  `kode_produk` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `image` text COLLATE utf8mb4_general_ci NOT NULL,
-  `deskripsi` text COLLATE utf8mb4_general_ci NOT NULL,
+  `kode_produk` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nama` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `image` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `deskripsi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `harga` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -167,9 +169,12 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`kode_produk`, `nama`, `image`, `deskripsi`, `harga`) VALUES
-('P0001', 'Roti Sobek', '5f1d915d27dc3.jpg', '																								Roti Enak Sobek Sobek aww\r\n																					', 10000),
-('P0002', 'Maryam', '5f1d9154715a4.jpg', '				Roti araym\r\n						', 15000),
-('P0003', 'Kue tart coklat', '5f1d924614831.jpg', 'Kuetar dengan varian rasa coklat enak dan lumer rasanya\r\n			', 100000);
+('P0001', 'Facial Wash Tea Tree', '6784cc5f58cb1.jpg', 'Sabun cuci muka dengan ekstrak tea tree oil yang efektif membersihkan dan mengontrol minyak berlebih pada wajah. Cocok untuk kulit berminyak dan berjerawat. Mengandung bahan alami yang menyegarkan dan tidak membuat kulit kering.', 75000),
+('P0002', 'Brightening Serum', '6784cc5f58cb1.jpg', 'Serum pencerah wajah dengan kandungan Vitamin C dan Niacinamide yang efektif mencerahkan dan meratakan warna kulit. Membantu mengurangi hiperpigmentasi dan membuat kulit lebih bercahaya.', 120000),
+('P0003', 'Moisturizer Ceramide', '6784cc5f58cb1.jpg', 'Pelembab wajah dengan formula ringan yang mengandung ceramide dan hyaluronic acid. Memberikan hidrasi optimal tanpa membuat wajah berminyak. Cocok untuk semua jenis kulit dan dapat digunakan siang dan malam.', 95000),
+('P0004', 'Croissant', '6784cc5f58cb1.jpg', '												Croissant adalah roti berbentuk bulan sabit yang berasal dari Prancis. Roti ini memiliki tekstur yang sangat renyah dan berlapis-lapis karena proses \"laminating\" (penambahan mentega di antara lapisan adonan). Croissant sering disajikan sebagai sarapan atau camilan.\r\n												', 20000),
+('P0005', 'Baguette', '6784cc82a8164.jpg', '												Baguette adalah roti khas Prancis dengan bentuk panjang dan ramping. Baguette memiliki kerak yang sangat renyah dan isi yang ringan serta sedikit berongga. Biasanya disajikan sebagai pendamping sup, keju, atau sebagai bahan dasar sandwich.									', 10000),
+('P0006', 'hhha', '6784cf86b0a78.jpg', '																				\r\n			sgjhwgugy															', 115000);
 
 -- --------------------------------------------------------
 
@@ -179,20 +184,20 @@ INSERT INTO `produk` (`kode_produk`, `nama`, `image`, `deskripsi`, `harga`) VALU
 
 CREATE TABLE `produksi` (
   `id_order` int NOT NULL,
-  `invoice` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `kode_customer` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `kode_produk` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama_produk` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `invoice` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `kode_customer` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `kode_produk` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nama_produk` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `qty` int NOT NULL,
   `harga` int NOT NULL,
-  `status` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `tanggal` date NOT NULL,
-  `provinsi` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `kota` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `alamat` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `kode_pos` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `terima` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `tolak` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `provinsi` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `kota` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `kode_pos` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `terima` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `tolak` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `cek` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -210,7 +215,10 @@ INSERT INTO `produksi` (`id_order`, `invoice`, `kode_customer`, `kode_produk`, `
 (14, 'INV0005', 'C0005', 'P0001', 'Roti Sobek', 1, 10000, '0', '2323-07-15', 'Jawa Barat', 'Bandung', 'Ujung Berung', '40397', '1', '0', 0),
 (15, 'INV0006', 'C0006', 'P0001', 'Roti Sobek', 1, 10000, 'Pesanan Baru', '2424-12-23', 'Kalimantan Selatan', 'Banjarmasin', 'jl. gerilya, no. 130', '70247', '2', '1', 0),
 (16, 'INV0006', 'C0006', 'P0003', 'Kue tart coklat', 1, 100000, 'Pesanan Baru', '2424-12-23', 'Kalimantan Selatan', 'Banjarmasin', 'jl. gerilya, no. 130', '70247', '2', '1', 0),
-(17, 'INV0007', 'C0006', 'P0002', 'Maryam', 1, 15000, '0', '2424-12-23', 'Banjarmasin', 'Banjarmasin', '130', '70247', '1', '0', 0);
+(17, 'INV0007', 'C0006', 'P0002', 'Maryam', 1, 15000, '0', '2424-12-23', 'Banjarmasin', 'Banjarmasin', '130', '70247', '1', '0', 0),
+(18, 'INV0008', 'C0006', 'P0005', 'Baguette', 1, 10000, '0', '2424-12-27', 'Banjarmasin', 'Banjarmasin', '130', '70247', '1', '0', 1),
+(19, 'INV0008', 'C0006', 'P0006', 'Brownies', 2, 15000, '0', '2424-12-27', 'Banjarmasin', 'Banjarmasin', '130', '70247', '1', '0', 1),
+(20, 'INV0008', 'C0006', 'P0004', 'Croissant', 1, 20000, '0', '2424-12-27', 'Banjarmasin', 'Banjarmasin', '130', '70247', '1', '0', 1);
 
 -- --------------------------------------------------------
 
@@ -220,9 +228,9 @@ INSERT INTO `produksi` (`id_order`, `invoice`, `kode_customer`, `kode_produk`, `
 
 CREATE TABLE `report_cancel` (
   `id_report_cancel` int NOT NULL,
-  `id_order` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `kode_produk` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `jumlah` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_order` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `kode_produk` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `jumlah` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -234,10 +242,10 @@ CREATE TABLE `report_cancel` (
 
 CREATE TABLE `report_inventory` (
   `id_report_inv` int NOT NULL,
-  `kode_bk` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama_bahanbaku` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `kode_bk` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nama_bahanbaku` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `jml_stok_bk` int NOT NULL,
-  `tanggal` varchar(11) COLLATE utf8mb4_general_ci NOT NULL
+  `tanggal` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -248,7 +256,7 @@ CREATE TABLE `report_inventory` (
 
 CREATE TABLE `report_omset` (
   `id_report_omset` int NOT NULL,
-  `invoice` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `invoice` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `jumlah` int NOT NULL,
   `total_omset` int NOT NULL,
   `tanggal` date NOT NULL
@@ -262,9 +270,9 @@ CREATE TABLE `report_omset` (
 
 CREATE TABLE `report _penjualan` (
   `id_report_sell` int NOT NULL,
-  `invoice` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `kode_produk` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama_produk` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `invoice` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `kode_produk` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nama_produk` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `jumlah_terjual` int NOT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -277,9 +285,9 @@ CREATE TABLE `report _penjualan` (
 
 CREATE TABLE `report_produksi` (
   `id_report_prd` int NOT NULL,
-  `invoice` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `kode_produk` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama_produk` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `invoice` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `kode_produk` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nama_produk` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `qty` int NOT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -292,11 +300,11 @@ CREATE TABLE `report_produksi` (
 
 CREATE TABLE `report_profit` (
   `id_report_profit` int NOT NULL,
-  `kode_bom` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `invoice` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `kode_produk` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `jumlah` varchar(11) COLLATE utf8mb4_general_ci NOT NULL,
-  `total_profit` varchar(11) COLLATE utf8mb4_general_ci NOT NULL,
+  `kode_bom` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `invoice` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `kode_produk` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `jumlah` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `total_profit` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -391,13 +399,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id_keranjang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_keranjang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `produksi`
 --
 ALTER TABLE `produksi`
-  MODIFY `id_order` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_order` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `report_cancel`

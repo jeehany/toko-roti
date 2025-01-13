@@ -1,10 +1,11 @@
-<?php 
+<?php
 include '../koneksi/koneksi.php';
 
 $hal = $_GET['hal'];
+$jmlh = $_GET['jmlh'];
 $kode_cs = $_GET['kd_cs'];
 $kode_produk = $_GET['produk'];
-if(isset($_GET['jml'])){
+if (isset($_GET['jml'])) {
 	$qty = $_GET['jml'];
 }
 
@@ -16,14 +17,14 @@ $nama_produk = $row['nama'];
 $kd = $row['kode_produk'];
 $harga = $row['harga'];
 
-if($hal == 1){
+if ($hal == 1) {
 	$cek = mysqli_query($conn, "SELECT * from keranjang where kode_produk = '$kode_produk' and kode_customer = '$kode_cs'");
 	$jml = mysqli_num_rows($cek);
 	$row1 = mysqli_fetch_assoc($cek);
-	if($jml > 0){
-		$set = $row1['qty']+1;
-		$update = mysqli_query($conn, "UPDATE keranjang SET qty = '$set' WHERE kode_produk = '$kode_produk' and kode_customer = '$kode_cs'");
-		if($update){
+	if ($jmlh > 0) {
+		$set = $jmlh;
+		$insert = mysqli_query($conn, "INSERT INTO keranjang VALUES(null,'$kode_cs','$kd','$nama_produk', $set, '$harga')");
+		if ($insert) {
 			echo "
 			<script>
 			alert('BERHASIL DITAMBAHKAN KE KERANJANG');
@@ -32,10 +33,22 @@ if($hal == 1){
 			";
 			die;
 		}
-	}else{
+	} else if ($jmlh == 0 && $jml > 0) {
+		$set = $row1['qty'] + 1;
+		$update = mysqli_query($conn, "UPDATE keranjang SET qty = '$set' WHERE kode_produk = '$kode_produk' and kode_customer = '$kode_cs'");
+		if ($update) {
+			echo "
+			<script>
+			alert('BERHASIL DITAMBAHKAN KE KERANJANG');
+			window.location = '../keranjang.php';
+			</script>
+			";
+			die;
+		}
+	} else {
 
 		$insert = mysqli_query($conn, "INSERT INTO keranjang VALUES(null,'$kode_cs','$kd','$nama_produk', '1', '$harga')");
-		if($insert){
+		if ($insert) {
 			echo "
 			<script>
 			alert('BERHASIL DITAMBAHKAN KE KERANJANG');
@@ -45,8 +58,4 @@ if($hal == 1){
 			die;
 		}
 	}
-
 }
-
-
-?>

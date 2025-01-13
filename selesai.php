@@ -1,15 +1,15 @@
-<?php 
-	include 'header.php';
- ?>
+<?php
+include 'header.php';
+?>
 
 <div class="container" style="padding-bottom: 300px;">
 	<h2 class="bg-success text-center" style="padding: 10px;">Checkout Berhasil</h2>
-	<h4 class="text-center" style="font-weight: bold;">Terimakasih Sudah Berbelanja di Loaf Love Backery, Pesananmu sedang diproses silahkan tunggu barangmu dirumah ya.. :)</h4>
-	
+	<h4 class="text-center" style="font-weight: bold;">Terimakasih Sudah Berbelanja di LiVi Skincare Store, Pesananmu sedang diproses silahkan tunggu barangmu dirumah ya.. :)</h4>
+
 </div>
 
 
 
- <?php 
-	include 'footer.php';
- ?>
+<?php
+include 'footer.php';
+?>
