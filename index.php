@@ -14,10 +14,10 @@ include 'header.php';
 <div class="container">
 
 
-		<h4 class="text-center" style="font-family: arial; padding-top: 10px; padding-bottom: 10px; font-style: italic; line-height: 29px; border-top: 2px solid #ff8d87; border-bottom: 2px solid #ff8d87;">Rapi Cake & Bakery adalah salah satu pelopor pertama dalam bisnis roti modern di Indonesia. Didirikan pada tahun 1978,  saat ini dikelola di bawah PT. Mustika Citra Rasa. Produk kami sehat, bergizi, dan terjangkau oleh semua orang.</h4>
+		<h4 class="text-center" style="font-family: arial; padding-top: 10px; padding-bottom: 10px; font-style: italic; line-height: 29px; border-top: 2px solid #80C4E9; border-bottom: 2px solid #80C4E9;"><b>Loaf Love Bakery</b> adalah pionir dalam menghadirkan roti dan kue-kue lezat dengan sentuhan modern. Didirikan pada tahun 2010, kami berkomitmen untuk memberikan produk berkualitas tinggi yang tidak hanya enak, tetapi juga sehat dan bergizi. Dengan menggunakan bahan-bahan pilihan, kami memastikan setiap produk yang kami buat dapat dinikmati oleh semua kalangan, mulai dari roti tawar, donat, hingga berbagai macam kue tradisional dan internasional. Kami percaya bahwa setiap gigitan membawa kebahagiaan, dan itu adalah tujuan kami dalam setiap produk yang kami hasilkan.</h4>
 
 
-	<h2 style=" width: 100%; border-bottom: 4px solid #ff8680; margin-top: 80px;"><b>Produk Kami</b></h2>
+	<h2 style=" width: 100%; border-bottom: 4px solid #80C4E9; margin-top: 80px;"><b>Produk Kami</b></h2>
 
 	<div class="row">
 		<?php 
@@ -32,7 +32,7 @@ include 'header.php';
 						<h4>Rp.<?= number_format($row['harga']); ?></h4>
 						<div class="row">
 							<div class="col-md-6">
-								<a href="detail_produk.php?produk=<?= $row['kode_produk']; ?>" class="btn btn-warning btn-block">Detail</a> 
+								<a href="detail_produk.php?produk=<?= $row['kode_produk']; ?>" class="btn btn-info btn-block">Detail</a> 
 							</div>
 							<?php if(isset($_SESSION['kd_cs'])){ ?>
 								<div class="col-md-6">

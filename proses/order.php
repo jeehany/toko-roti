@@ -33,7 +33,7 @@ while($row = mysqli_fetch_assoc($keranjang)){
 	$harga = $row['harga'];
 	$status = "Pesanan Baru";
 
-	$order = mysqli_query($conn, "INSERT INTO produksi VALUES('','$format','$kd_cs','$kd_produk','$nama_produk','$qty','$harga','$status','$tanggal','$prov','$kota','$alamat','$kopos','0','0','0')");
+	$order = mysqli_query($conn, "INSERT INTO produksi VALUES(null,'$format','$kd_cs','$kd_produk','$nama_produk','$qty','$harga','$status','$tanggal','$prov','$kota','$alamat','$kopos','0','0','0')");
 
 
 }

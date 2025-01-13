@@ -31,7 +31,12 @@ $t_cs = mysqli_fetch_assoc($cs);
 		<tbody>
 
 			<?php 
-			$result = mysqli_query($conn, "SELECT DISTINCT invoice, kode_customer, status, kode_produk, qty,terima,tolak, cek FROM produksi group by invoice");
+			$result = mysqli_query($conn, "
+			SELECT DISTINCT invoice, kode_customer, status, kode_produk, qty, terima, tolak, cek 
+			FROM produksi 
+			GROUP BY invoice, kode_customer, status, kode_produk, qty, terima, tolak, cek
+			");
+		
 			$no = 1;
 			$array = 0;
 			while($row = mysqli_fetch_assoc($result)){

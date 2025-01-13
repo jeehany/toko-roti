@@ -29,8 +29,8 @@ if(isset($_POST['submit1'])){
 ?>
 
 
-<div class="container" style="padding-bottom: 300px;">
-	<h2 style=" width: 100%; border-bottom: 4px solid #ff8680"><b>Keranjang</b></h2>
+<div class="container" style="padding-bottom: 100px;">
+	<h2 style=" width: 100%; border-bottom: 4px solid #80C4E9"><b>Keranjang</b></h2>
 		<table class="table table-striped">
 			<?php 
 			if(isset($_SESSION['user'])){
